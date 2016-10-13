@@ -5,6 +5,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class WeatherList extends Component {
+
+    renderWeather(cityData) {
+        return(
+            <tr key={cityData.city.id}>
+                <td >{cityData.city.name}</td>
+            </tr>
+        );
+    };
+
     render() {
         return (
             <table className="table table-hover">
@@ -17,7 +26,7 @@ class WeatherList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-
+                {this.props.weather.map(this.renderWeather)}
                 </tbody>
             </table>
         );
